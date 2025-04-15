@@ -41,15 +41,15 @@ export default function RootLayout({ children }: Props) {
             </div>
             <div>
               <Link href="/">Home</Link>
-              <Link href="/">Chatbot</Link>
+              <Link href="/chatbot">Chatbot</Link>
             </div>
             <div>
               {user ? (
-                <Link href="/">Logout</Link>
+                <Link href="/logout">Logout</Link>
               ) : (
                 <>
-                  <Link href="/">Login</Link>
-                  <Link href="/">Register</Link>
+                  <Link href="/login">Login</Link>
+                  <Link href="/register">Register</Link>
                 </>
               )}
             </div>

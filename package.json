@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev": "concurrently \"pnpm run next-dev\" \"pnpm run flask-dev\"",
+    "next-dev": "next dev",
+    "flask-dev": "FLASK_DEBUG=1 python3 -m flask --app python/main.py run --port 5328",
     "lint": "next lint",
     "migrate": "ley --require tsx/cjs",
     "start": "next start"
@@ -28,9 +30,11 @@
   },
   "devDependencies": {
     "@ts-safeql/eslint-plugin": "^3.6.12",
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^22.14.1",
     "@types/react": "^19.1.1",
     "@types/react-dom": "^19.1.2",
+    "concurrently": "^9.1.2",
     "eslint": "^9.24.0",
     "eslint-config-upleveled": "^9.2.3",
     "libpg-query": "^16.3.0",
